@@ -1,0 +1,26 @@
+<div [formGroup]="form">
+  <label [attr.for]="custom.key">{{ custom.label }}</label>
+
+  <div [ngSwitch]="custom.controlType">
+    <input
+      *ngSwitchCase="'textbox'"
+      [formControlName]="custom.key"
+      [id]="custom.key"
+      [type]="custom.type"
+    />
+
+    <select
+      [id]="custom.key"
+      *ngSwitchCase="'dropdown'"
+      [formControlName]="custom.key"
+    >
+      <option *ngFor="let opt of custom.options" [value]="opt.key">
+        {{ opt.value }}
+      </option>
+    </select>
+  </div>
+
+  <div class="errorMessage" *ngIf="!isValid">
+    {{ custom.label }} is required
+  </div>
+</div>
