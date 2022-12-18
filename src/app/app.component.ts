@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
-import { CustomService } from './custom.service';
-import { CustomBase } from './custom-base';
-import { Observable } from 'rxjs';
+import { Observable } from "rxjs";
+import { CustomBase } from "./custom-controls/interfaces/custom-base";
+import { CustomService } from "./custom-controls/services/custom.service";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   template: `
     <div>
       <h2>Job Application for Heroes</h2>
-      <app-dynamic-form [customControls]="customControls$ | async"></app-dynamic-form>
+      <app-dynamic-form
+        [customControls]="customControls$ | async"
+      ></app-dynamic-form>
     </div>
   `,
   providers: [CustomService],

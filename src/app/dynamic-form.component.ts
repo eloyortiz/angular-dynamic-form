@@ -1,23 +1,23 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from "@angular/core";
+import { FormGroup } from "@angular/forms";
 
-import { CustomBase } from './custom-base';
-import { CustomControlService } from './custom-control.service';
+import { CustomBase } from "./custom-controls/interfaces/custom-base";
+import { CustomControlService } from "./custom-controls/services/custom-control.service";
 
 @Component({
-  selector: 'app-dynamic-form',
-  templateUrl: './dynamic-form.component.html',
+  selector: "app-dynamic-form",
+  templateUrl: "./dynamic-form.component.html",
   providers: [CustomControlService],
 })
 export class DynamicFormComponent implements OnInit {
   @Input() customControls: CustomBase<string>[] | null = [];
   form!: FormGroup;
-  payLoad = '';
+  payLoad = "";
 
-  constructor(private qcs: CustomControlService) {}
+  constructor(private ccs: CustomControlService) {}
 
   ngOnInit() {
-    this.form = this.qcs.toFormGroup(
+    this.form = this.ccs.toFormGroup(
       this.customControls as CustomBase<string>[]
     );
   }
