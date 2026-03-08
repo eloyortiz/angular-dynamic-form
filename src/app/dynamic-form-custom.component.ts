@@ -6,6 +6,7 @@ import { CustomBase } from "./custom-controls/interfaces/custom-base";
 @Component({
   selector: "app-custom",
   templateUrl: "./dynamic-form-custom.component.html",
+  standalone: false,
 })
 export class DynamicFormCustomComponent {
   @Input() custom!: CustomBase<string>;

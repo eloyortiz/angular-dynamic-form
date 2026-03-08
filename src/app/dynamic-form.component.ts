@@ -8,6 +8,7 @@ import { CustomControlService } from "./custom-controls/services/custom-control.
   selector: "app-dynamic-form",
   templateUrl: "./dynamic-form.component.html",
   providers: [CustomControlService],
+  standalone: false,
 })
 export class DynamicFormComponent implements OnInit {
   @Input() customControls: CustomBase<string>[] | null = [];
