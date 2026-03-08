@@ -15,6 +15,7 @@ import { CustomService } from "./custom-controls/services/custom.service";
     </div>
   `,
   providers: [CustomService],
+  standalone: false,
 })
 export class AppComponent {
   customControls$: Observable<CustomBase<any>[]>;
